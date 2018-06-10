@@ -1,0 +1,43 @@
+<h1>Products</h1>
+
+<div style="margin:0 0 10px 0;">
+  <button class="btn btn-primary"
+          [routerLink]="['/products/insert']"
+          routerLinkActive="router-link-active">
+    Add New
+  </button>
+</div>
+
+
+<p *ngIf="!products"><em>Loading...</em></p>
+
+<table class='table table-stripped table-bordered table-hover' *ngIf="products">
+  <thead class="thead-dark">
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Price</th>
+      <th>Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{ product.imageUrl }}</td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.price }}</td>
+      <td>
+        <button class="btn btn-default"
+                [routerLink]="['/products/details/',product.id]"
+                routerLinkActive="router-link-active">
+          Details
+        </button>
+        <button class="btn btn-secondary"
+                [routerLink]="['/products/edit',product.id]"
+                routerLinkActive="router-link-active">
+          Edit
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
