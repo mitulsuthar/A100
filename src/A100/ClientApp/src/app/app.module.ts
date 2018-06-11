@@ -41,6 +41,7 @@ import { ProductDeleteComponent } from './product/product-delete/product-delete.
       { path: 'products/insert', component: ProductInsertComponent },
       { path: 'products/edit/:id', component: ProductEditComponent },
       { path: 'products/details/:id', component: ProductDetailsComponent },
+      { path: 'products/delete/:id', component: ProductDeleteComponent },
     ])
   ],
   providers: [],

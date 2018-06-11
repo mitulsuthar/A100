@@ -1,3 +1,29 @@
-<p>
-  product-delete works!
-</p>
+<h2>Confirm Deletion</h2>
+<div class="panel panel-primary" *ngIf="product">
+  <div class="panel-heading">
+    <h4>Are you sure you want to delete?</h4>
+
+  </div>
+  <div class="panel-body">
+    <div class="form-group">
+      <label for="Title" class="form-label">Title</label>
+      <p class="form-content">{{product.title}}</p>
+    </div>
+
+    <div class="form-group">
+      <label for="Price" class="form-label">Price</label>
+      <p class="form-content">{{product.price}}</p>
+    </div>
+
+    <div class="form-group">
+      <label for="Title" class="form-label">Image</label>
+      <p class="form-content">{{product.imageUrl}}</p>
+    </div>
+  </div>
+  <div class="panel-footer">
+    <button class="btn btn-primary"
+            (click)="onDelete(product)">Delete</button>
+    <button class="btn btn-default pull-right"
+            [routerLink]="['/products']" routerLinkActive="router-link-active">Back</button>
+  </div>
+</div>

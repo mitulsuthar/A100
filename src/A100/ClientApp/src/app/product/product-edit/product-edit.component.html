@@ -1,3 +1,35 @@
-<p>
-  product-edit works!
-</p>
+<h2>Edit Product</h2>
+<button class="btn btn-primary"
+        [routerLink]="['/products']"
+        routerLinkActive="router-link-active">Back</button>
+
+<form *ngIf="product" (ngSubmit)="onProductSave(product)" #productForm="ngForm">
+
+  <div class="form-group">
+    <label for="title" class="form-label">Title</label>
+    <input type="text"
+           name="title" 
+           id="title" class="form-control" 
+           [(ngModel)]="product.title" />
+  </div>
+
+  <div class="form-group">
+    <label for="Price" class="form-label">Price</label>
+    <input name="Price"
+           type="number" 
+           id="Price" class="form-control"
+           [(ngModel)]="product.price" />
+  </div>
+
+  <div class="form-group">
+    <label for="ImageUrl" class="form-label">Image</label>
+    <input name="ImageUrl"
+           type="text" 
+           id="ImageUrl" class="form-control"
+           [(ngModel)]="product.imageUrl" />
+  </div>
+
+  <button class="btn btn-primary"
+          type="submit">Save</button>
+
+</form>

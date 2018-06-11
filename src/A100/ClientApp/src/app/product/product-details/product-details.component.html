@@ -1,3 +1,18 @@
-<p>
-  product-details works!
-</p>
+<h2>Product Details</h2>
+<button class="btn btn-primary" [routerLink]="['/products']" routerLinkActive="router-link-active">Back</button>
+<div *ngIf="product">
+  <div class="form-group">
+    <label for="Title" class="form-label">Title</label>
+    <p class="form-content">{{product.title}}</p>
+  </div>
+
+  <div class="form-group">
+    <label for="Price" class="form-label">Price</label>
+    <p class="form-content">{{product.price}}</p>
+  </div>
+
+  <div class="form-group">
+    <label for="Title" class="form-label">Image</label>
+    <p class="form-content">{{product.imageUrl}}</p>
+  </div>
+</div>

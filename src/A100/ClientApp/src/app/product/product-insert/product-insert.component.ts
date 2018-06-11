@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product, IProduct } from '../product';
 
 @Component({
   selector: 'app-product-insert',
@@ -7,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductInsertComponent implements OnInit {
 
-  constructor() { }
+  public product: IProduct;
+  constructor() {
+    this.product = new Product("",0);
+  }
 
+
+  onProductSave(product: IProduct) {
+    console.log(JSON.stringify(product));
+  }
   ngOnInit() {
   }
 

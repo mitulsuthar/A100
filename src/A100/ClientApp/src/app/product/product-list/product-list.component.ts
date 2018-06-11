@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { Product, IProduct } from '../product';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -16,9 +16,4 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
   }
 }
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  imageUrl: string;
-}
+

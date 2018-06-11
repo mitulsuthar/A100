@@ -37,6 +37,11 @@
                 routerLinkActive="router-link-active">
           Edit
         </button>
+        <button class="btn btn-warning"
+                [routerLink]="['/products/delete',product.id]"
+                routerLinkActive="router-link-active">
+          Delete
+        </button>
       </td>
     </tr>
   </tbody>
