@@ -14,7 +14,7 @@ import { ProductEditComponent } from './product/product-edit/product-edit.compon
 import { ProductInsertComponent } from './product/product-insert/product-insert.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { ProductDeleteComponent } from './product/product-delete/product-delete.component';
-
+import { minvalueValidatorDirective } from './shared/minvalue-validator.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { ProductDeleteComponent } from './product/product-delete/product-delete.
     ProductEditComponent,
     ProductInsertComponent,
     ProductDetailsComponent,
-    ProductDeleteComponent
+    ProductDeleteComponent,
+    minvalueValidatorDirective
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

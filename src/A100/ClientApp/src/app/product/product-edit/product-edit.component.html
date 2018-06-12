@@ -3,33 +3,55 @@
         [routerLink]="['/products']"
         routerLinkActive="router-link-active">Back</button>
 
-<form *ngIf="product" (ngSubmit)="onProductSave(product)" #productForm="ngForm">
 
-  <div class="form-group">
-    <label for="title" class="form-label">Title</label>
+<form *ngIf="product" (ngSubmit)="onProductSave(product)" #productForm="ngForm" novalidate>
+
+  <div class="form-group" [class.has-error]="title.invalid && title.touched">
+    <label for="title" class="control-label">Title</label>
     <input type="text"
-           name="title" 
-           id="title" class="form-control" 
-           [(ngModel)]="product.title" />
+           name="title"
+           id="title" class="form-control"
+           [(ngModel)]="product.title"
+           #title="ngModel"
+           required />
+
+    <div class="alert alert-danger"
+         *ngIf="title.invalid && title.touched">
+      Title is required.
+    </div>
+
   </div>
 
-  <div class="form-group">
-    <label for="Price" class="form-label">Price</label>
+  <div class="form-group" [class.has-error]="price.touched && (price.invalid || price.value <=0)">
+    <label for="Price" class="control-label">Price</label>
     <input name="Price"
-           type="number" 
+           type="number"
            id="Price" class="form-control"
-           [(ngModel)]="product.price" />
+           [(ngModel)]="product.price"
+           #price="ngModel"
+           minvalueValidator/>
+
+    <div class="alert alert-danger"
+         *ngIf="price.touched && (price.value === null)">
+      Price is required.
+    </div>
+    <div class="alert alert-danger"
+         *ngIf="price.touched && (price.value !== null) && (price.value <= 0)">
+      Price must be greater than 0.
+    </div>
   </div>
 
   <div class="form-group">
-    <label for="ImageUrl" class="form-label">Image</label>
+    <label for="ImageUrl" class="control-label">Image</label>
     <input name="ImageUrl"
-           type="text" 
+           type="text"
            id="ImageUrl" class="form-control"
            [(ngModel)]="product.imageUrl" />
   </div>
 
   <button class="btn btn-primary"
-          type="submit">Save</button>
-
+          type="submit"
+          [disabled]="productForm.invalid">
+    Save
+  </button>
 </form>
