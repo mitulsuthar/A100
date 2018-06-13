@@ -1,13 +1,20 @@
 <h2>Add New Product</h2>
 <button class="btn btn-primary" [routerLink]="['/products']" routerLinkActive="router-link-active">Back</button>
 
-<form (ngSubmit)="onProductSave(product)" #productForm="ngForm" novalidate>
-
+<form (ngSubmit)="onProductSave(productForm)" #productForm="ngForm" novalidate>
+  <br />
+  <div class="alert alert-danger" role="alert" *ngIf="errors.length > 0">
+    <ul>
+      <li *ngFor="let error of errors">
+        {{ error }}
+      </li>
+    </ul>
+  </div>
   <div class="form-group" [class.has-error]="title.invalid && title.touched">
-    <label for="title" class="control-label">Title</label>
+    <label for="Title" class="control-label">Title</label>
     <input type="text"
-           name="title"
-           id="title" class="form-control"
+           name="Title"
+           id="Title" class="form-control"
            [(ngModel)]="product.title"
            #title="ngModel"
            required />
@@ -27,7 +34,7 @@
            [(ngModel)]="product.price"
            #price="ngModel"
            minvalueValidator />
-       
+
     <div class="alert alert-danger"
          *ngIf="price.touched && (price.value === null)">
       Price is required.
