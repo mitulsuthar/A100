@@ -15,6 +15,7 @@ import { ProductInsertComponent } from './product/product-insert/product-insert.
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
 import { ProductDeleteComponent } from './product/product-delete/product-delete.component';
 import { minvalueValidatorDirective } from './shared/minvalue-validator.directive';
+import { ProductService } from './product/product.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { minvalueValidatorDirective } from './shared/minvalue-validator.directiv
       { path: 'products/delete/:id', component: ProductDeleteComponent },
     ])
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

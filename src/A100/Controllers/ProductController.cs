@@ -54,7 +54,7 @@ namespace WebApplication2.Controllers
 
 
         [HttpPost("[action]/{id:int}")]
-        public ActionResult<Product> Delete(int id)
+        public ActionResult Delete(int id)
         {
             return Ok("Delete Successfull");
         }

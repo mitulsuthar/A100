@@ -1,15 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Product, IProduct } from '../product';
 import { FormControl, AbstractControl } from '@angular/forms';
+import { ProductService } from '../product.service';
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Authorization': 'my-auth-token'
-  })
-};
 
 
 @Component({
@@ -23,14 +17,8 @@ export class ProductEditComponent implements OnInit {
   public product: Product;
   id: number;
   private _baseUrl: string;
-  constructor(private _http: HttpClient, private _activeRoute: ActivatedRoute, @Inject('BASE_URL') baseUrl: string) {
-    this._baseUrl = baseUrl;
+  constructor(private productService: ProductService, private _activeRoute: ActivatedRoute) {    
     this.id = this._activeRoute.snapshot.params['id'];
-    this._http.get<Product>(baseUrl + 'api/Product/Find/' + this.id).subscribe(result => {
-      this.product = result;
-    }, error => console.log(error));
-
-
   }
 
   onProductSave(productForm: any) {
@@ -38,7 +26,7 @@ export class ProductEditComponent implements OnInit {
     productForm.controls;
     let product = productForm.value;
     
-    this._http.post<Product>(this._baseUrl + 'api/Product/Edit', product, httpOptions)
+    this.productService.insertProduct(product)
       .subscribe(result => {
         console.log(result);
         this.errors = [];
@@ -62,6 +50,9 @@ export class ProductEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.productService.getProduct(this.id).subscribe(result => {
+      this.product = result;
+    }, error => console.log(error));
     this.errors = [];
   }
 
