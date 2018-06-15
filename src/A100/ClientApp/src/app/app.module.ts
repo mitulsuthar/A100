@@ -7,8 +7,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { ProductInsertComponent } from './product/product-insert/product-insert.component';
@@ -21,9 +19,7 @@ import { ProductService } from './product/product.service';
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
+    HomeComponent,    
     ProductListComponent,
     ProductEditComponent,
     ProductInsertComponent,
@@ -36,10 +32,8 @@ import { ProductService } from './product/product.service';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'products', component: ProductListComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: HomeComponent, pathMatch: 'full' },      
+      { path: 'products', component: ProductListComponent },      
       { path: 'products/insert', component: ProductInsertComponent },
       { path: 'products/edit/:id', component: ProductEditComponent },
       { path: 'products/details/:id', component: ProductDetailsComponent },
