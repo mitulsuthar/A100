@@ -1,5 +1,5 @@
 # A100
-This repo is for sharing code as part of blog post series at http://mscodingblog.blogspot.com/2018/06/a1building-app-using-angular-and-aspnet.html
+This repo is for sharing code as part of blog post series at <a href="http://mscodingblog.blogspot.com/2018/06/a1building-app-using-angular-and-aspnet.html">Mitul Suthar's Blog</a>
 
 
 <ul>
@@ -11,6 +11,7 @@ This repo is for sharing code as part of blog post series at http://mscodingblog
 <ul>
   <li><strong>Blog Post Series</strong> documenting journey <a href="http://mscodingblog.blogspot.com/2018/06/a1building-app-using-angular-and-aspnet.html">Building app using Angular and ASP.NET Core 2.1</a></li>
   <li><strong>GitHub</strong> for downloading code as it is baked fresh <a href="">A100 GitHub Repo</a></li>  
+  <li><strong>Website hosted on Azure <a href="https://a100store.azurewebsites.net/">A100</a></strong></li>
 </ul>
 <p>Add comment to Blog posts or open GitHub issues regarding giving me feedback and improving my learning experience.</p>
 
