@@ -1,16 +1,16 @@
-<h1>A100</h1>
-<p>This website is an e-commerce website.</p>
-<ul>
-  <li>New features added as I learn new things.</li>
-  <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
-  <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
-</ul>
-<p>To follow along this journey of building and learning:</p>
-<ul>
-  <li><strong>Blog Post Series</strong> documenting journey <a href="http://mscodingblog.blogspot.com/2018/06/a1building-app-using-angular-and-aspnet.html">Building app using Angular and ASP.NET Core 2.1</a></li>
-  <li><strong>GitHub</strong> for downloading code as it is baked fresh <a href="">A100 GitHub Repo</a></li>
-  <li><strong>Website hosted on Azure <a href="https://a100store.azurewebsites.net/">A100</a></strong></li>
-</ul>
-<p>Add comment to Blog posts or open GitHub issues regarding giving me feedback and improving my learning experience.</p>
-
-Twitter <a href="http://twitter.com/#!/mitulsuthar">@mitulsuthar</a>
+<div class="row">
+  <div class="col" *ngFor="let product of products">
+    <div class="card">      
+      <img class="card-img-top" src="../../assets/DSC_0169.JPG" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">{{product.title}}</h4>
+        <p class="card-text">Some example text.</p>
+        <button class="btn btn-primary"
+                [routerLink]="['/products/details/',product.id]"
+                routerLinkActive="router-link-active">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

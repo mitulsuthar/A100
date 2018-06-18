@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Product } from './product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import 'rxjs/add/observable/throw';
 import { of } from 'rxjs/observable/of';
 const httpOptions = {
   headers: new HttpHeaders({
@@ -67,10 +68,9 @@ export class ProductService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-
-      console.log(error); // log to console instead      
+      console.log(error); //log to console instead       
       this.log(`${operation} failed: ${error.message}`);      
-      return of(result as T);
+      return Observable.throw(error || 'Server error');
     };
   }
    
