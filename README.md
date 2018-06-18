@@ -24,4 +24,6 @@ Twitter <a href="http://twitter.com/#!/mitulsuthar">@mitulsuthar</a>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a3building-app-using-angular-and-aspnet.html">A3 - Form Validation</a></li>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a4building-app-using-angular-and-aspnet.html">A4 - Posting Form, Server-Side Validation, Displaying Error Messages</a></li>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a5building-app-using-angular-and-aspnet.html">A5 - Services and Dependency Injection</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a6building-app-using-angular-and-aspnet.html">A6 - Cleanup, Host on Azure, CI and CD Pipeline, edit readme.md</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a7building-app-using-angular-and-aspnet.html">A7 - Bootstrap 4, SASS, Cleanup and Refactoring</a></li>
 </ul>
