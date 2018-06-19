@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
@@ -9,7 +9,7 @@ export class NavMenuComponent {
   isExpanded = false;
 
   collapse() {
-    this.isExpanded = false;
+    this.isExpanded = false;    
   }
 
   toggle() {

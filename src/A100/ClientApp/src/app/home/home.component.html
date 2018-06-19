@@ -1,11 +1,11 @@
-<div class="row">
-  <div class="col" *ngFor="let product of products">
-    <div class="card">      
+<div class="row no-gutters">
+  <div class="card-group" *ngFor="let product of products">
+    <div class="card product-card">      
       <img class="card-img-top" src="../../assets/DSC_0169.JPG" alt="Card image">
       <div class="card-body">
         <h4 class="card-title">{{product.title}}</h4>
         <p class="card-text">Some example text.</p>
-        <button class="btn btn-primary"
+        <button class="btn btn-sm btn-primary"
                 [routerLink]="['/products/details/',product.id]"
                 routerLinkActive="router-link-active">
           Learn More

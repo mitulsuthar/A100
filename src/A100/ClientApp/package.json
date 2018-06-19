@@ -28,8 +28,11 @@
     "bootstrap": "^4.1.1",
     "core-js": "^2.4.1",
     "jquery": "^3.3.1",
+    "node-sass": "^4.9.0",
     "popper.js": "^1.14.3",
     "rxjs": "^5.5.6",
+    "sass-graph": "^3.0.0",
+    "sass-loader": "^7.0.3",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
@@ -52,7 +55,5 @@
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
   },
-  "optionalDependencies": {
-    "node-sass": "^4.9.0"
-  }
+  "optionalDependencies": {}
 }
