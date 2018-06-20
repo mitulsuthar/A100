@@ -17,5 +17,6 @@ export class ProductListComponent implements OnInit {
       this.products = result;
     }, error => console.log(error));
   }
+  p: number = 1;
 }
 

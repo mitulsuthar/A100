@@ -10,13 +10,15 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductService } from './product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     HttpClientModule,
     FormsModule,
     CommonModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    NgxPaginationModule
   ],
   declarations: [
     ProductListComponent,

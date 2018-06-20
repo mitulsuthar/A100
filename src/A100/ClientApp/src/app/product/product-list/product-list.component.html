@@ -1,4 +1,3 @@
-<h1>Products</h1>
 
 <div style="margin:0 0 10px 0;">
   <button class="btn btn-primary"
@@ -14,18 +13,18 @@
 <table class='table table-stripped table-bordered table-hover' *ngIf="products">
   <thead class="thead-dark">
     <tr>
-      <th>Image</th>
       <th>Title</th>
+      <th>Description</th>
       <th>Price</th>
       <th>Actions</th>
 
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{ product.imageUrl }}</td>
+    <tr *ngFor="let product of products | paginate : { itemsPerPage: 10, currentPage:p}">
       <td>{{ product.title }}</td>
-      <td>{{ product.price | currency }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.price | currency }}</td>      
       <td>
         <button class="btn btn-default"
                 [routerLink]="['/products/details/',product.id]"
@@ -46,3 +45,6 @@
     </tr>
   </tbody>
 </table>
+<div class="container text-center">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

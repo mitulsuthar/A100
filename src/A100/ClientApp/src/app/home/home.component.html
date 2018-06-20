@@ -1,16 +1,28 @@
-<div class="row no-gutters">
-  <div class="card-group" *ngFor="let product of products">
-    <div class="card product-card">      
-      <img class="card-img-top" src="../../assets/DSC_0169.JPG" alt="Card image">
-      <div class="card-body">
-        <h4 class="card-title">{{product.title}}</h4>
-        <p class="card-text">Some example text.</p>
-        <button class="btn btn-sm btn-primary"
-                [routerLink]="['/products/details/',product.id]"
-                routerLinkActive="router-link-active">
-          Learn More
-        </button>
+<div>
+  <div class="row no-gutters">
+    <div class="card-group" *ngFor="let product of products | paginate : { itemsPerPage: 10, currentPage:p}">
+      <div class="card product-card">
+        <img class="card-img-top" src="../../assets/DSC_0169.JPG" alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">{{product.title}}</h4>
+          <p class="card-text">{{product.description}}</p>
+          <div>
+            <div class="float float-xl-left">
+              {{product.price | currency}}
+            </div>
+            <div class="float float-xl-right">
+              <button class="btn btn-sm btn-warning"
+                      [routerLink]="['/products/details/',product.id]"
+                      routerLinkActive="router-link-active">
+                Add To Cart
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
+<div class="container text-center">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

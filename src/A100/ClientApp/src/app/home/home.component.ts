@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../product/product';
 import { ProductService } from '../product/product.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,6 +10,7 @@ import { ProductService } from '../product/product.service';
 })
 export class HomeComponent implements OnInit {
   public products: Product[];
+  
   constructor(private productService: ProductService) {
     console.log(productService);
   }
@@ -17,4 +19,7 @@ export class HomeComponent implements OnInit {
       this.products = result;
     }, error => console.log(error));
   }
+
+  p: number = 1;
+
 }

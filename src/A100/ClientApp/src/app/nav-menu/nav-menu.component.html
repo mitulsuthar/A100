@@ -3,7 +3,7 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" (click)='toggle()'>
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar"  [ngClass]='{ "in": isExpanded }'>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar"  [ngClass]='{ "in": isExpanded }'>    
     <ul class="navbar-nav">
       <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
         <a [routerLink]='["/"]' (click)='collapse()' class="nav-link">
@@ -19,7 +19,10 @@
         <a [routerLink]='["/about"]' (click)='collapse()' class="nav-link">
           <span class='glyphicon glyphicon-th-list'></span> About
         </a>
-      </li>
+      </li>      
     </ul>
+  </div>
+  <div class="float float-xl-right">
+    <app-shopping-cart-widget></app-shopping-cart-widget>
   </div>
 </nav>
