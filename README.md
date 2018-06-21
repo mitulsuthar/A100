@@ -10,7 +10,7 @@ This repo is for sharing code as part of blog post series at <a href="http://msc
 <p>To follow along this journey of building and learning:</p>
 <ul>
   <li><strong>Blog Post Series</strong> documenting journey <a href="http://mscodingblog.blogspot.com/2018/06/a1building-app-using-angular-and-aspnet.html">Building app using Angular and ASP.NET Core 2.1</a></li>
-  <li><strong>GitHub</strong> for downloading code as it is baked fresh <a href="">A100 GitHub Repo</a></li>  
+  <li><strong>GitHub</strong> for downloading code as it is baked fresh <a href="https://github.com/mitulsuthar/A100">A100 GitHub Repo</a></li>  
   <li><strong>Website hosted on Azure <a href="https://a100store.azurewebsites.net/">A100</a></strong></li>
 </ul>
 <p>Add comment to Blog posts or open GitHub issues regarding giving me feedback and improving my learning experience.</p>
@@ -26,4 +26,7 @@ Twitter <a href="http://twitter.com/#!/mitulsuthar">@mitulsuthar</a>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a5building-app-using-angular-and-aspnet.html">A5 - Services and Dependency Injection</a></li>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a6building-app-using-angular-and-aspnet.html">A6 - Cleanup, Host on Azure, CI and CD Pipeline, edit readme.md</a></li>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a7building-app-using-angular-and-aspnet.html">A7 - Bootstrap 4, SASS, Cleanup and Refactoring</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a8building-app-using-angular-and-aspnet.html">A8 - SASS and Responsive Layout</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a9building-app-using-angular-and-aspnet.html">A9 - Font-awesome, Pagination and Layout</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a10building-app-using-angular-and-aspnet.html">A10 - Services, Events and Cross Component Communication</a></li>
 </ul>

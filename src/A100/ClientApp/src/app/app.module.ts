@@ -10,6 +10,7 @@ import { ProductModule } from './product/product.module';
 import { AboutComponent } from './about/about.component';
 import { ShoppingCartWidgetComponent } from './shopping/shopping-cart-widget/shopping-cart-widget.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ShoppingService } from './shopping/shopping.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
       { path: 'about', component: AboutComponent, pathMatch: 'full' },
     ])
   ],
-  providers: [],
+  providers: [ShoppingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
