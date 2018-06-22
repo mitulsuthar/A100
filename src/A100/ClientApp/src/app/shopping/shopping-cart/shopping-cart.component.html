@@ -1,0 +1,26 @@
+<div class="container">  
+  <div class="row no-gutters">
+    <div class="card-group col-sm-12" *ngFor="let product of products">
+      <div class="card product-card">
+        <img class="card-img-top" src="../../assets/DSC_0169.JPG" alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title">{{product.title}}</h4>
+          <p class="card-text">{{product.description}}</p>
+          <div>
+            <div class="float float-xl-left">
+              {{product.price | currency}}
+            </div>
+            <div class="float float-xl-right">
+              <button class="btn btn-sm btn-warning"
+                     (click)="removeFromCart(product)">
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="products.length > 0" class="row no-gutters"><button class="btn btn-primary">Checkout</button></div>
+  <div *ngIf="products.length === 0">You do not have any products in your cart.</div>
+</div>

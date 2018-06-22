@@ -27,6 +27,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProductDetailsComponent,
     ProductDeleteComponent,
   ],
-  providers:[ProductService]
+  providers: [ProductService]
 })
 export class ProductModule { }

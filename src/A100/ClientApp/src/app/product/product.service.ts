@@ -15,13 +15,12 @@ const httpOptions = {
 
 export class ProductService {
 
-  
   private _baseUrl: string;
-  private _productListUrl: string = "api/Product/List";
-  private _productInsertUrl: string = "api/Product/Insert";
-  private _productEditUrl: string = "api/Product/Edit";
-  private _productFindUrl: string = "api/Product/Find/";
-  private _productDeleteUrl: string = "api/Product/Delete/";
+  private _productListUrl = 'api/Product/List';
+  private _productInsertUrl = 'api/Product/Insert';
+  private _productEditUrl = 'api/Product/Edit';
+  private _productFindUrl = 'api/Product/Find/';
+  private _productDeleteUrl = 'api/Product/Delete/';
   constructor(private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this._baseUrl = baseUrl;
   }
@@ -61,20 +60,23 @@ export class ProductService {
   deleteProduct(product: Product): Observable<any> {
     return this._http.post<Product>(this._baseUrl + this._productDeleteUrl + product.id, product, httpOptions)
       .pipe(
-        tap(products => this.log(`fetched products`)),
+        tap(products => {
+          this.log(`fetched products`);
+        }
+      ),
         catchError(this.handleError<Product>('deleteProduct'))
       );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.log(error); //log to console instead       
-      this.log(`${operation} failed: ${error.message}`);      
+      console.log(error); // log to console instead
+      this.log(`${operation} failed: ${error.message}`);
       return Observable.throw(error || 'Server error');
     };
   }
-   
+
   private log(message: string) {
-    console.log("Product Service" + message);
+    console.log('Product Service' + message);
   }
 }

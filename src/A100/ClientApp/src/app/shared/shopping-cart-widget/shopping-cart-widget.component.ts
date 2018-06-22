@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ShoppingService } from '../shopping.service';
+import { ShoppingService } from '../../shopping/shopping.service';
 
 @Component({
   selector: 'app-shopping-cart-widget',
@@ -15,5 +15,4 @@ export class ShoppingCartWidgetComponent implements OnInit {
   ngOnInit() {
     this.shoppingService.currentCartQuantity.subscribe(quantity => this.quantity = quantity);
   }
-
 }

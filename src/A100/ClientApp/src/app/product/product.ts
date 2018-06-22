@@ -12,7 +12,7 @@ export class Product implements IProduct {
   price: number;
   imageUrl: string;
   description: string;
-  constructor(_title:string,_price:number) {
+  constructor(_title: string, _price: number) {
     this.title = _title;
     this.price = _price;
   }

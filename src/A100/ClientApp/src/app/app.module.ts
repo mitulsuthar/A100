@@ -8,15 +8,16 @@ import { HomeComponent } from './home/home.component';
 import { minvalueValidatorDirective } from './shared/minvalue-validator.directive';
 import { ProductModule } from './product/product.module';
 import { AboutComponent } from './about/about.component';
-import { ShoppingCartWidgetComponent } from './shopping/shopping-cart-widget/shopping-cart-widget.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ShoppingService } from './shopping/shopping.service';
+import { ShoppingModule } from './shopping/shopping.module';
+import { ShoppingCartWidgetComponent } from './shared/shopping-cart-widget/shopping-cart-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
-    HomeComponent,        
+    HomeComponent,
     minvalueValidatorDirective,
     AboutComponent,
     ShoppingCartWidgetComponent
@@ -26,6 +27,7 @@ import { ShoppingService } from './shopping/shopping.service';
     AngularFontAwesomeModule,
     NgxPaginationModule,
     ProductModule,
+    ShoppingModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'about', component: AboutComponent, pathMatch: 'full' },

@@ -12,8 +12,8 @@ namespace A100.Controllers
     public class ShoppingCartController : Controller
     {
         private static List<Product> shoppingCartProducts = new List<Product>() {
-            new Product { Id = 1, Title = "XYZ1",Description = "Description XYZ 1 - HARD CODED SHOPPING CART", Price = 101,ImageUrl = "ImageUrl_XYZ1" },
-            new Product { Id = 2, Title = "XYZ2",Description = "Description XYZ 2 - HARD CODED SHOPPING CART", Price = 200,ImageUrl = "ImageUrl_XYZ2" }
+            new Product { Id = 1, Title = "XYZ1",Description = "Description XYZ 1 ", Price = 101,ImageUrl = "ImageUrl_XYZ1" },
+            new Product { Id = 2, Title = "XYZ2",Description = "Description XYZ 2 ", Price = 200,ImageUrl = "ImageUrl_XYZ2" }
         };
         [HttpGet("[action]")]
         public IEnumerable<Product> Products()
@@ -25,6 +25,11 @@ namespace A100.Controllers
         public ActionResult Add(int id)
         {
             return new JsonResult("product added to cart");
+        }
+        [HttpPost("[action]/{id:int}")]
+        public ActionResult Delete(int id)
+        {
+            return new JsonResult("product removed from cart");
         }
     }
 }
