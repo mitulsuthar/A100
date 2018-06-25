@@ -6,6 +6,7 @@ import { catchError, map, tap, last } from 'rxjs/operators';
 import 'rxjs/add/observable/throw';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
+import { ShoppingCartProduct } from './shoppingCartProduct';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -26,8 +27,8 @@ export class ShoppingService {
     // this.updateCartQuantity();
   }
 
-  getProductsFromShoppingCart(): Observable<Product[]> {
-    return this._http.get<Product[]>(this._baseUrl + this._getProductsFromShoppingCart)
+  getProductsFromShoppingCart(): Observable<ShoppingCartProduct[]> {
+    return this._http.get<ShoppingCartProduct[]>(this._baseUrl + this._getProductsFromShoppingCart)
       .pipe(
         tap(products => this.log(`fetched products`)),
         catchError(this.handleError('getProducts', []))
@@ -37,7 +38,11 @@ export class ShoppingService {
   updateCartQuantity() {
     this.getProductsFromShoppingCart().subscribe(products => {
       this.log(`getting products from shopping cart`);
-      this.cartQuantitySource.next(products.length);
+      let quantity = 0;
+      for (var i = 0; i < products.length; i++) {
+        quantity += (products[i]).quantity;
+      }
+      this.cartQuantitySource.next(quantity);
     });
   }
 
@@ -47,7 +52,7 @@ export class ShoppingService {
       this.updateCartQuantity();
     });
   }
-  removeProductFromCart(product: Product): Observable<any> {
+  removeProductFromCart(product: ShoppingCartProduct): Observable<any> {
     return this._http.post(this._baseUrl + this._removeProductToShoppingCart + product.id, product, httpOptions)
     .pipe(
       tap(products => {
@@ -55,7 +60,7 @@ export class ShoppingService {
         this.updateCartQuantity();
       }
     ),
-      catchError(this.handleError<Product>('deleteProduct'))
+      catchError(this.handleError<ShoppingCartProduct>('deleteProduct'))
     );
   }
 

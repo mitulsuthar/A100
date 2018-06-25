@@ -1,26 +1,62 @@
-<div class="container">  
+<div class="container">
   <div class="row no-gutters">
-    <div class="card-group col-sm-12" *ngFor="let product of products">
-      <div class="card product-card">
-        <img class="card-img-top" src="../../assets/DSC_0169.JPG" alt="Card image">
-        <div class="card-body">
+    <div class="col-md-2 col-lg-2 col-xl-2">
+      <h4 class="p-0 m-0">Shopping Cart</h4>
+    </div>
+    <div class="col-md-6 col-lg-6 col-xl-6 pl-2">
+
+    </div>
+    <div class="col-md-1 col-lg-1 col-xl-1">
+      Price
+    </div>
+    <div class="col-md-1 col-lg-1 col-xl-1">
+      Quantity
+    </div>
+    <div class="col-md-2 col-lg-2 col-xl-2">
+
+    </div>
+  </div>
+  <hr />
+  <div *ngIf="products">
+    <div *ngFor="let product of products">
+      <div class="row no-gutters" style="margin-top:10px;">
+        <div class="col-md-2 col-lg-2 col-xl-2">
+          <img class="card-img-top" src="../../assets/DSC_0169.JPG" alt="Card image">
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-6 pl-2">
           <h4 class="card-title">{{product.title}}</h4>
-          <p class="card-text">{{product.description}}</p>
-          <div>
-            <div class="float float-xl-left">
-              {{product.price | currency}}
-            </div>
-            <div class="float float-xl-right">
-              <button class="btn btn-sm btn-warning"
-                     (click)="removeFromCart(product)">
-                Remove
-              </button>
-            </div>
-          </div>
+          <p>{{product.description}}</p>
+        </div>
+        <div class="col-md-1 col-lg-1 col-xl-1">
+          <span class="text-danger"><strong>{{product.price | currency}}</strong></span>
+        </div>
+        <div class="col-md-1 col-lg-1 col-xl-1">
+          <input type="number" name="Quantity" [value]="product.quantity" style="width:50px;" class="px-1 text-center"/>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2">
+          <button class="btn btn-sm btn-outline-dark"
+                  (click)="removeFromCart(product)">
+            Delete
+          </button>
         </div>
       </div>
     </div>
   </div>
-  <div *ngIf="products.length > 0" class="row no-gutters"><button class="btn btn-primary">Checkout</button></div>
+  <hr />
+  <div class="row no-gutters">
+    <div class="col-md-12 col-lg-12 col-xl-12">
+      <div class="float-right">
+        <h4>Sub Total: <span class="text-danger"><strong>{{orderTotal | currency}}</strong></span></h4>
+      </div>    
+    </div>
+  </div>
+  <br />
+  <div *ngIf="products.length > 0" class="row no-gutters">
+    <div class="col-md-12 col-lg-12 col-xl-12">
+      <div class="float-right">        
+          <button class="btn btn-warning float-right">Checkout</button>
+      </div>
+    </div>
+  </div>
   <div *ngIf="products.length === 0">You do not have any products in your cart.</div>
 </div>
