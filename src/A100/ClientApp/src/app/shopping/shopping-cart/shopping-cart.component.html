@@ -31,7 +31,7 @@
           <span class="text-danger"><strong>{{product.price | currency}}</strong></span>
         </div>
         <div class="col-md-1 col-lg-1 col-xl-1">
-          <input type="number" name="Quantity" [value]="product.quantity" style="width:50px;" class="px-1 text-center"/>
+          <input type="number" name="Quantity" min="1" (ngModelChange)="onQuantityChanged(product,$event)" [(ngModel)]="product.quantity" style="width:50px;" class="px-1 text-center"/>
         </div>
         <div class="col-md-2 col-lg-2 col-xl-2">
           <button class="btn btn-sm btn-outline-dark"

@@ -10,8 +10,8 @@ import { ShoppingService } from '../shopping/shopping.service';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
+  p = 1;
   public products: Product[];
-  
   constructor(private productService: ProductService, private shoppingService: ShoppingService) {
     console.log(productService);
   }
@@ -21,8 +21,6 @@ export class HomeComponent implements OnInit {
     }, error => console.log(error));
 
   }
-
-  p: number = 1;
 
   addToCart(product: Product) {
     console.log(product);

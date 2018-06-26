@@ -17,14 +17,18 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.shoppingService.getProductsFromShoppingCart().subscribe(products => {
-      this.products = products;
-      this.orderTotal = this.getOrderTotal(products);
-    });
+    this.getProductsFromShoppingCart();
   }
-  getOrderTotal(products: ShoppingCartProduct[]):number {
-    let total:number = 0.0;    
-    for (var i = 0; i < products.length; i++) {
+  getProductsFromShoppingCart() {
+        this.shoppingService.getProductsFromShoppingCart().subscribe(products => {
+          this.products = products;
+          this.orderTotal = this.getOrderTotal(products);
+        });
+  }
+
+  getOrderTotal(products: ShoppingCartProduct[]): number {
+    let total = 0.0;
+    for (let i = 0; i < products.length; i++) {
       total += products[i].price * products[i].quantity;
     }
     return total;
@@ -36,6 +40,13 @@ export class ShoppingCartComponent implements OnInit {
           this.products.splice(index, 1);
       }
       this.orderTotal = this.getOrderTotal(this.products);
+    });
+  }
+
+  onQuantityChanged(product: ShoppingCartProduct, quantityChanged: number) {
+    this.shoppingService.updateCartProductQuantity(product, quantityChanged).subscribe(products => {
+      this.products = products;
+      this.orderTotal = this.getOrderTotal(products);
     });
   }
 }

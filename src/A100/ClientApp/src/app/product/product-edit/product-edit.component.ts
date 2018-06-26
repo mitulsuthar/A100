@@ -17,15 +17,13 @@ export class ProductEditComponent implements OnInit {
   public product: Product;
   id: number;
   private _baseUrl: string;
-  constructor(private productService: ProductService, private _activeRoute: ActivatedRoute) {    
+  constructor(private productService: ProductService, private _activeRoute: ActivatedRoute) {
     this.id = this._activeRoute.snapshot.params['id'];
   }
 
   onProductSave(productForm: any) {
     console.log((productForm));
-    productForm.controls;
-    let product = productForm.value;
-    
+    const product: Product = productForm.value;
     this.productService.insertProduct(product)
       .subscribe(result => {
         console.log(result);
@@ -35,14 +33,14 @@ export class ProductEditComponent implements OnInit {
         console.log(error);
         console.log(error.error);
         if (error.status === 400) {
-          let allErrors = error.error;
-          for (var fieldName in allErrors) {
+          const allErrors = error.error;
+          for (const fieldName in allErrors) {
             if (allErrors.hasOwnProperty(fieldName)) {
               if (productForm.controls[fieldName]) {
                 productForm.controls[fieldName].markAsTouched();
                 productForm.controls[fieldName].setErrors({ invalid: true });
                 this.errors.push(allErrors[fieldName]);
-              } 
+              }
             }
           }
         }
