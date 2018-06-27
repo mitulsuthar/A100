@@ -2,22 +2,30 @@
   <div class="row no-gutters">
     <div class="card-group" *ngFor="let product of products | paginate : { itemsPerPage: 10, currentPage:p}">
       <div class="card product-card">
-        <img class="card-img-top" src="../../assets/DSC_0169.JPG" alt="Card image">
-        <div class="card-body">
-          <h4 class="card-title">{{product.title}}</h4>
-          <p class="card-text">{{product.description}}</p>
-          <div>
-            <div class="float float-xl-left">
-              {{product.price | currency}}
+        <div class="row no-gutters">
+            <div class="col-lg-12 col-md-12">
+              <img class="card-img-top" src="../../assets/DSC_0169.JPG" alt="Card image">
             </div>
-            <div class="float float-xl-right">
-              <button class="btn btn-sm btn-warning"
-                     (click)="addToCart(product)">
-                Add To Cart
-              </button>
+            <div class="col-lg-12 px-lg-2 col-md-12 px-md-2 col-xs-12 px-xs-2">
+              <h4 class="card-title">{{product.title}}</h4>
             </div>
-          </div>
-        </div>
+            <div class="col-lg-12 px-lg-2 col-md-12 px-md-2 col-xs-12 px-sm-1">
+              <p class="card-text">{{product.description}}</p>
+            </div>
+            <div class="col-lg-12 px-lg-2 col-md-12 px-md-2 px-xs-2">
+              <div class="row no-gutters">
+                <div class="col-lg-6 text-xl-left col-md-12">
+                  {{product.price | currency}}
+                </div>
+                <div class="col-lg-6 text-xl-right col-md-12">
+                  <button class="btn btn-sm btn-warning"
+                         (click)="addToCart(product)">
+                    Add To Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+        </div>        
       </div>
     </div>
   </div>

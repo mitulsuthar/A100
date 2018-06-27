@@ -5,6 +5,7 @@ import { ShoppingRoutingModule } from './shopping-routing.module';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ShoppingService } from './shopping.service';
 import { FormsModule } from '@angular/forms';
+import { CheckoutContactComponent } from './checkout-contact/checkout-contact.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   declarations: [
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    CheckoutContactComponent
   ],
   providers: [ShoppingService]
 })

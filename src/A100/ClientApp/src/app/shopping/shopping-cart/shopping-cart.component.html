@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row no-gutters">
     <div class="col-md-2 col-lg-2 col-xl-2">
       <h4 class="p-0 m-0">Shopping Cart</h4>
@@ -20,20 +20,20 @@
   <div *ngIf="products">
     <div *ngFor="let product of products">
       <div class="row no-gutters" style="margin-top:10px;">
-        <div class="col-md-2 col-lg-2 col-xl-2">
+        <div class="col-sm-3 col-md-2 col-lg-2 col-xl-2">
           <img class="card-img-top" src="../../assets/DSC_0169.JPG" alt="Card image">
         </div>
-        <div class="col-md-6 col-lg-6 col-xl-6 pl-2">
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 pl-2">
           <h4 class="card-title">{{product.title}}</h4>
           <p>{{product.description}}</p>
         </div>
-        <div class="col-md-1 col-lg-1 col-xl-1">
+        <div class="col-sm-2 col-md-1 col-lg-1 col-xl-1">
           <span class="text-danger"><strong>{{product.price | currency}}</strong></span>
         </div>
-        <div class="col-md-1 col-lg-1 col-xl-1">
+        <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1 my-xs-2">
           <input type="number" name="Quantity" min="1" (ngModelChange)="onQuantityChanged(product,$event)" [(ngModel)]="product.quantity" style="width:50px;" class="px-1 text-center"/>
         </div>
-        <div class="col-md-2 col-lg-2 col-xl-2">
+        <div class="col-sm-12 mt-sm-1 col-md-2 col-lg-2 col-xl-2 mt-1 mt-md-0 mt-lg-0 mt-xl-0">
           <button class="btn btn-sm btn-outline-dark"
                   (click)="removeFromCart(product)">
             Delete
@@ -54,7 +54,7 @@
   <div *ngIf="products.length > 0" class="row no-gutters">
     <div class="col-md-12 col-lg-12 col-xl-12">
       <div class="float-right">        
-          <button class="btn btn-warning float-right">Checkout</button>
+          <a class="btn btn-warning float-right" [routerLink]="['/shoppingcart/checkout/contact']" routerLinkActive="router-link-active" >Checkout</a>
       </div>
     </div>
   </div>
