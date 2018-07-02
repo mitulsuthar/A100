@@ -17,13 +17,12 @@ export class ProductInsertComponent implements OnInit {
 
   constructor(private productService: ProductService) {
     console.log(productService);
-    this.product = new Product("", 0);
+    this.product = new Product('', 0);
   }
 
   onProductSave(productForm: any) {
     console.log((productForm));
-    productForm.controls;
-    let product = productForm.value;
+    const product = productForm.value;
 
     this.productService.insertProduct(product)
       .subscribe(result => {
@@ -34,8 +33,8 @@ export class ProductInsertComponent implements OnInit {
         console.log(error);
         console.log(error.error);
         if (error.status === 400) {
-          let allErrors = error.error;
-          for (var fieldName in allErrors) {
+          const allErrors = error.error;
+          for (const fieldName in allErrors) {
             if (allErrors.hasOwnProperty(fieldName)) {
               if (productForm.controls[fieldName]) {
                 productForm.controls[fieldName].markAsTouched();

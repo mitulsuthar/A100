@@ -11,19 +11,16 @@ import { ProductService } from '../product.service';
 export class ProductDeleteComponent implements OnInit {
 
   public product: Product;
-  id: number;
   constructor(private productService: ProductService, private _activeRoute: ActivatedRoute) {
-
-    this.id = this._activeRoute.snapshot.params['id'];   
   }
   onDelete(product: Product) {
     this.productService.deleteProduct(product).subscribe(result => {
       console.log(result);
-    }, error => console.log(error));;
+    }, error => console.log(error));
   }
   ngOnInit() {
-    this.productService.getProduct(this.id).subscribe(result => {
-      this.product = result;
+    this._activeRoute.data.subscribe(data => {
+      this.product = data['product'];
     }, error => console.log(error));
   }
 

@@ -15,10 +15,10 @@ export class ProductEditComponent implements OnInit {
 
   public errors: string[];
   public product: Product;
-  id: number;
+  // id: number;
   private _baseUrl: string;
   constructor(private productService: ProductService, private _activeRoute: ActivatedRoute) {
-    this.id = this._activeRoute.snapshot.params['id'];
+    // this.id = this._activeRoute.snapshot.params['id'];
   }
 
   onProductSave(productForm: any) {
@@ -48,8 +48,8 @@ export class ProductEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.getProduct(this.id).subscribe(result => {
-      this.product = result;
+    this._activeRoute.data.subscribe(data => {
+      this.product = data['product'];
     }, error => console.log(error));
     this.errors = [];
   }

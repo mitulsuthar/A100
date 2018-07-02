@@ -11,15 +11,13 @@ import { ProductService } from '../product.service';
 export class ProductDetailsComponent implements OnInit {
 
   public product: Product;
-  id: number;
   constructor(private productService: ProductService, private _activeRoute: ActivatedRoute) {
-    this.id = this._activeRoute.snapshot.params['id'];  
 
   }
 
   ngOnInit() {
-    this.productService.getProduct(this.id).subscribe(result => {
-      this.product = result;
+    this._activeRoute.data.subscribe(data => {
+      this.product = data['product'];
     }, error => console.log(error));
   }
 

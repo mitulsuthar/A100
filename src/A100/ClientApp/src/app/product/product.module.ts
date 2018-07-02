@@ -11,6 +11,7 @@ import { ProductService } from './product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductResolverService } from './product-resolver.service';
 
 @NgModule({
   imports: [
@@ -27,6 +28,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ProductDetailsComponent,
     ProductDeleteComponent,
   ],
-  providers: [ProductService]
+  providers: [ProductService, ProductResolverService]
 })
 export class ProductModule { }

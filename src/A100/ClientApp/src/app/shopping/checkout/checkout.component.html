@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <ul class="nav nav-pills nav-wizard">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['shoppingcart']" routerLinkActive="active">
+          <fa name="shopping-cart"></fa>
+          <span class="d-none d-sm-none d-lg-inline d-md-inline d-xl-inline">Cart</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['shippinginfo']" routerLinkActive="active">
+            <fa name="address-card"></fa>
+            <span class="d-none d-sm-none d-lg-inline d-md-inline d-xl-inline">Shipping Info</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['payment']" routerLinkActive="active">
+          <fa name="credit-card"></fa>
+          <span class="d-none d-sm-none d-lg-inline d-md-inline d-xl-inline">Pay</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " [routerLink]="['review']" routerLinkActive="active">
+            <fa name="box"></fa>
+            <span class="d-none d-sm-none d-lg-inline d-md-inline d-xl-inline">Review</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " [routerLink]="['confirmation']" routerLinkActive="active">Confirmation</a>
+      </li>
+    </ul>
+  </div>
+  <hr>
+  <router-outlet></router-outlet>
+</div>

@@ -1,7 +1,8 @@
-<div class="container-fluid">
+<br>
+<div class="container">
   <div class="row no-gutters">
     <div class="col-md-2 col-lg-2 col-xl-2">
-      <h4 class="p-0 m-0">Shopping Cart</h4>
+      Items
     </div>
     <div class="col-md-6 col-lg-6 col-xl-6 pl-2">
 
@@ -15,7 +16,7 @@
     <div class="col-md-2 col-lg-2 col-xl-2">
 
     </div>
-  </div>
+  </div>  
   <hr />
   <div *ngIf="products">
     <div *ngFor="let product of products">
@@ -54,7 +55,7 @@
   <div *ngIf="products.length > 0" class="row no-gutters">
     <div class="col-md-12 col-lg-12 col-xl-12">
       <div class="float-right">        
-          <a class="btn btn-warning float-right" [routerLink]="['/shoppingcart/checkout/contact']" routerLinkActive="router-link-active" >Checkout</a>
+          <a class="btn btn-warning float-right" [routerLink]="['/checkout/shippinginfo']" routerLinkActive="router-link-active" >Checkout</a>
       </div>
     </div>
   </div>
