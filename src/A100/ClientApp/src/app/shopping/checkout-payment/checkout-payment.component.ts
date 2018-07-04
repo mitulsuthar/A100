@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout-payment',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutPaymentComponent implements OnInit {
 
-  constructor() { }
+  paymentInfoForm: FormGroup;
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+    this.createForm();
+  }
 
   ngOnInit() {
   }
 
+  createForm() {
+    this.paymentInfoForm = this.formBuilder.group({
+      NameOnCard: '',
+      CardNumber: '',
+      CardType: '',
+      SecurityCode: '',
+      billingAddress: this.formBuilder.group({
+        Street: '',
+        City: '',
+        State: '',
+        Zip: ''
+      })
+    });
+  }
+  onSubmit() {
+   console.log(this.paymentInfoForm);
+    this.router.navigate(['checkout/review']);
+  }
 }
