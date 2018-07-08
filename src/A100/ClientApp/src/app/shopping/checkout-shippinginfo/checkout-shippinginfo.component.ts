@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-checkout-shippinginfo',
@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 })
 export class CheckoutShippinginfoComponent implements OnInit {
 
-  shippingInfoForm: FormGroup;
+  form: FormGroup;
+  private formSumitAttempt: boolean;
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.createForm();
   }
@@ -17,23 +18,31 @@ export class CheckoutShippinginfoComponent implements OnInit {
   }
 
   createForm() {
-    this.shippingInfoForm = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       contact: this.formBuilder.group({
-          FirstName: '',
-          LastName: '',
-          Email: '',
-          Phone: ''
+          FirstName: ['', Validators.required],
+          LastName: ['', Validators.required],
+          Email: ['', [Validators.required, Validators.email]],
+          Phone:  ['', [Validators.required, Validators.pattern('^\\d{10}$')]]
       }),
       shippingAddress: this.formBuilder.group({
-        Street: '',
-        City: '',
-        State: '',
-        Zip: ''
+        Street: ['', Validators.required],
+        City: ['', Validators.required],
+        State: ['', Validators.required],
+        Zip: ['', Validators.required]
       })
     });
   }
+  isFieldValid(field: string) {
+    return (
+      (!this.form.get(field).valid && this.form.get(field).touched) ||
+      (this.form.get(field).untouched && this.formSumitAttempt)
+    );
+  }
   onSubmit() {
-   console.log(this.shippingInfoForm);
-    this.router.navigate(['checkout/payment']);
+   this.formSumitAttempt = true;
+   if (this.form.valid) {
+     this.router.navigate(['checkout/payment']);
+   }
   }
 }
