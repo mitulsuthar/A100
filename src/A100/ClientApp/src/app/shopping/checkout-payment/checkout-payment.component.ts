@@ -8,7 +8,7 @@ function expirationDateValidator(control: AbstractControl): {[key: string]: bool
   if (expirationMonth.pristine || expirationYear.pristine) {
     return null;
   }
-  if (expirationYear.touched && expirationMonth.touched) {
+  if (expirationYear.dirty && expirationMonth.dirty) {
       const currentYear = (new Date()).getFullYear();
       const currentMonth = (new Date()).getMonth();
       if (expirationYear.value === currentYear && expirationMonth.value < currentMonth) {
@@ -16,8 +16,6 @@ function expirationDateValidator(control: AbstractControl): {[key: string]: bool
       } else {
         return null;
       }
-  } else {
-    return null;
   }
   return {'expirationDate' : true};
 }
