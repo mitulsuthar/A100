@@ -11,6 +11,7 @@ import { CheckoutReviewComponent } from './checkout-review/checkout-review.compo
 import { CheckoutConfirmationComponent } from './checkout-confirmation/checkout-confirmation.component';
 import { CheckoutShippinginfoComponent } from './checkout-shippinginfo/checkout-shippinginfo.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { CheckoutService } from './checkout.service';
 
 @NgModule({
   imports: [
@@ -28,6 +29,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     CheckoutConfirmationComponent,
     CheckoutShippinginfoComponent
   ],
-  providers: [ShoppingService]
+  providers: [ShoppingService, CheckoutService]
 })
 export class ShoppingModule { }

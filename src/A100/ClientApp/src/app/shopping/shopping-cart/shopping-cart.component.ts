@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../shopping.service';
 import { Product } from '../../product/product';
-import { ShoppingCartProduct } from '../shoppingCartProduct';
+import { ShoppingCartProduct } from '../models/shoppingCartProduct';
 import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({

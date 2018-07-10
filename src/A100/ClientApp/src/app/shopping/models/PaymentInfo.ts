@@ -1,9 +1,7 @@
 import { Address } from './Address';
+import { CardInfo } from './CardInfo';
 
 export class PaymentInfo {
-    NameOnCard = '';
-    CardNumber = '';
-    CardType = '';
-    SecurityCode = '' ;
+    CardInfo: CardInfo;
     BillingAddress: Address;
 }

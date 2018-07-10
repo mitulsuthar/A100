@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ShippingInfo } from '../models/ShippingInfo';
+import { CheckoutService } from '../checkout.service';
 @Component({
   selector: 'app-checkout-shippinginfo',
   templateUrl: './checkout-shippinginfo.component.html',
@@ -10,7 +12,7 @@ export class CheckoutShippinginfoComponent implements OnInit {
 
   form: FormGroup;
   private formSumitAttempt: boolean;
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private checkoutService: CheckoutService) {
     this.createForm();
   }
 
@@ -42,7 +44,13 @@ export class CheckoutShippinginfoComponent implements OnInit {
   onSubmit() {
    this.formSumitAttempt = true;
    if (this.form.valid) {
-     this.router.navigate(['checkout/payment']);
+     console.log(this.form.value);
+     const shippinginfo = <ShippingInfo>this.form.value;
+     console.log(shippinginfo);
+     this.checkoutService.insertShippingInfo(shippinginfo).subscribe(result => {
+        console.log(result);
+        this.router.navigate(['checkout/payment']);
+     });
    }
   }
 }

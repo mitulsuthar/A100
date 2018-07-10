@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CheckoutService } from '../checkout.service';
+import { PaymentInfo } from '../models/PaymentInfo';
 
 function expirationDateValidator(control: AbstractControl): {[key: string]: boolean} | null {
   const expirationMonth = control.get('ExpirationMonth');
@@ -28,7 +30,7 @@ function expirationDateValidator(control: AbstractControl): {[key: string]: bool
 export class CheckoutPaymentComponent implements OnInit {
   cardTypes: string[] = ['VISA', 'DISCOVER', 'MASTERCARD', 'AMEX'];
   months: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  paymentInfoForm: FormGroup;
+  form: FormGroup;
   years: number[];
   private formSumitAttempt: boolean;
   getYears(): number[] {
@@ -39,7 +41,7 @@ export class CheckoutPaymentComponent implements OnInit {
     }
     return yrs;
   }
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private checkoutservice: CheckoutService) {
     this.createForm();
   }
 
@@ -48,7 +50,7 @@ export class CheckoutPaymentComponent implements OnInit {
   }
 
   createForm() {
-    this.paymentInfoForm = this.formBuilder.group({
+    this.form = this.formBuilder.group({
       cardInfo: this.formBuilder.group({
         NameOnCard: ['', Validators.required],
         CardNumber: ['', [Validators.required, Validators.pattern('^\\d*$')]],
@@ -70,14 +72,20 @@ export class CheckoutPaymentComponent implements OnInit {
 
   isFieldValid(field: string) {
     return (
-      (!this.paymentInfoForm.get(field).valid && this.paymentInfoForm.get(field).touched) ||
-      (this.paymentInfoForm.get(field).untouched && this.formSumitAttempt)
+      (!this.form.get(field).valid && this.form.get(field).touched) ||
+      (this.form.get(field).untouched && this.formSumitAttempt)
     );
   }
   onSubmit() {
     this.formSumitAttempt = true;
-    if (this.paymentInfoForm.valid) {
-      this.router.navigate(['checkout/review']);
+    if (this.form.valid) {
+      console.log(this.form.value);
+     const paymentInfo = <PaymentInfo>this.form.value;
+     console.log(paymentInfo);
+     this.checkoutservice.insertPaymentInfo(paymentInfo).subscribe(result => {
+        console.log(result);
+        this.router.navigate(['checkout/review']);
+     });
     }
   }
 }

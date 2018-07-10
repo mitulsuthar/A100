@@ -78,13 +78,15 @@
               </div>
             </div>
           </div>
+          <div>
+            <a class="btn btn-primary float-left" 
+            [routerLink]="['/checkout/shoppingcart']" 
+            routerLinkActive="router-link-active">Previous</a>
+            <button class="btn btn-warning float-right" 
+            type="submit">Next</button>
+          </div>
         </div>
       </div>
-      <a class="btn btn-primary float-left" 
-      [routerLink]="['/checkout/shoppingcart']" 
-      routerLinkActive="router-link-active">Previous</a>
-      <button class="btn btn-warning float-right" 
-      type="submit">Next</button>
     </form>
   </div>
 </div>

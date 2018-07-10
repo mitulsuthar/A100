@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using A100.Models;
 
-namespace WebApplication2.Controllers
+namespace A100.Controllers
 {
     [Route("api/[controller]")]
     public class ProductController : Controller

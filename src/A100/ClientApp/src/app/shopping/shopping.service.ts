@@ -6,7 +6,7 @@ import { catchError, map, tap, last } from 'rxjs/operators';
 import 'rxjs/add/observable/throw';
 import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
-import { ShoppingCartProduct } from './shoppingCartProduct';
+import { ShoppingCartProduct } from './models/shoppingCartProduct';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
