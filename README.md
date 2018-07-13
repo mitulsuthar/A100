@@ -32,4 +32,10 @@ Twitter <a href="http://twitter.com/#!/mitulsuthar">@mitulsuthar</a>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a11building-app-using-angular-and.html">A11 - Services and Component Refactoring</a></li>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a12building-app-using-angular-and.html">A12 - Building Shopping Cart</a></li>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a13building-app-using-angular-and.html">A13 - Update Shopping Cart Item Quantity</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a14building-app-using-angular-and.html">A14 - Responsive Product Card and Shopping Cart</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a15building-app-using-angular-and.html">A15 - Route Resolvers and Child Routes</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a16building-app-using-angular-and.html">A16 - Reactive Forms</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a17building-app-using-angular-and.html">A17 - Reactive Forms Validation</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a18building-app-using-angular-and.html">A18 - Reactive Forms Submitting Data</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/06/a19building-app-using-angular-and.html">A19 - Review Order Details</a></li>
 </ul>
