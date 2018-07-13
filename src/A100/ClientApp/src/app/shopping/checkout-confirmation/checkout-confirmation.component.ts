@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutConfirmationComponent implements OnInit {
 
+  confirmationNumber: number;
   constructor() { }
 
   ngOnInit() {
+    this.confirmationNumber = 23424244;
   }
 
 }

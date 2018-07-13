@@ -1,5 +1,96 @@
-<p>
-  checkout-review works!
-</p>
-<a class="btn btn-primary float-left" [routerLink]="['/checkout/payment']" routerLinkActive="router-link-active" >Previous</a>
-<a class="btn btn-warning float-right" [routerLink]="['/checkout/confirmation']" routerLinkActive="router-link-active" >Submit Order</a>
+<div class="d-flex justify-content-center">
+<div class="row">
+  <div class="col-lg-12">
+      <div>
+        <div *ngIf="reviewOrder && reviewOrder.shoppingCartProducts" class="card">
+          <div class="card-header">
+            <div class="float-left">Products</div>
+            <div class="float-right">
+              <a [routerLink]="['/checkout']" routerLinkActive="router-link-active">Edit</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <table class="table table-stripped">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of reviewOrder.shoppingCartProducts">
+                  <td> {{product.title}} </td>
+                  <td> {{product.price | currency }} </td>
+                  <td> {{product.quantity}} </td>
+                  <td> {{product.totalPrice | currency }} </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr>
+            <div class="float-right"><h5 class="text-danger">Sub Total: {{orderTotal | currency }}</h5></div>
+          </div>
+        </div>
+        <br>
+        <div>
+          <div *ngIf="reviewOrder && reviewOrder.shippingInfo" class="card">
+            <div class="card-header">
+              <div class="float-left">Shipping Info</div>
+              <div class="float-right">
+                <a [routerLink]="['/checkout/shippinginfo']" routerLinkActive="router-link-active">Edit</a>
+              </div>
+            </div>
+            <div class="card-body">
+              <h5>Contact</h5>
+              <p>
+                <span>{{ reviewOrder.shippingInfo.contact.firstName }} {{ reviewOrder.shippingInfo.contact.lastName }}</span>
+              </p>
+              <p>{{ reviewOrder.shippingInfo.contact.email }}</p>
+              <p>{{ reviewOrder.shippingInfo.contact.phone }}</p>
+              <br>
+              <h5>Shipping Address</h5>
+              <p>{{reviewOrder.shippingInfo.shippingAddress.street}}</p>
+              <p>{{reviewOrder.shippingInfo.shippingAddress.city}}</p>
+              <p>{{reviewOrder.shippingInfo.shippingAddress.state}}</p>
+              <p>{{reviewOrder.shippingInfo.shippingAddress.zip}}</p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div>
+          <div *ngIf="reviewOrder && reviewOrder.paymentInfo" class="card">
+            <div class="card-header">
+              <div class="float-left">Payment</div>
+              <div class="float-right">
+                <a [routerLink]="['/checkout/payment']" routerLinkActive="router-link-active">Edit</a>
+              </div>
+            </div>
+            <div class="card-body">
+              <h5>Card Details</h5>
+              <p>
+                {{ reviewOrder.paymentInfo.cardInfo.nameOnCard }}
+              </p>
+              <p>{{ reviewOrder.paymentInfo.cardInfo.cardNumber }}</p>
+              <p>{{ reviewOrder.paymentInfo.cardInfo.cardType }}</p>
+              <p>{{ reviewOrder.paymentInfo.cardInfo.securityCode }}</p>
+              <p>{{ reviewOrder.paymentInfo.cardInfo.expirationDate.expirationMonth }}</p>
+              <p>{{ reviewOrder.paymentInfo.cardInfo.expirationDate.expirationYear }}</p>
+              <br>
+              <h5>Billing Address</h5>
+              <p>{{reviewOrder.paymentInfo.billingAddress.street}}</p>
+              <p>{{reviewOrder.paymentInfo.billingAddress.city}}</p>
+              <p>{{reviewOrder.paymentInfo.billingAddress.state}}</p>
+              <p>{{reviewOrder.paymentInfo.billingAddress.zip}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div>        
+          <a class="btn btn-primary float-left" [routerLink]="['/checkout/payment']" routerLinkActive="router-link-active">Previous</a>
+          <button class="btn btn-warning float-right" (click)="submitOrder()">Submit Order</button>          
+      </div>
+    </div>
+  </div>
+</div>

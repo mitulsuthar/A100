@@ -1,6 +1,6 @@
 export class Address {
-    Street = '';
-    City   = '';
-    State  = '';
-    Zip    = '';
+    street = '';
+    city   = '';
+    state  = '';
+    zip    = '';
   }

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { catchError, tap } from 'rxjs/operators';
 import 'rxjs/add/observable/throw';
 import { PaymentInfo } from './models/PaymentInfo';
+import { ReviewOrder } from './models/ReviewOrder';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -15,8 +16,20 @@ export class CheckoutService {
   private _baseUrl: string;
   private _insertShippingInfo = 'api/Checkout/ShippingInfo/Insert';
   private _insertPaymentInfo = 'api/Checkout/PaymentInfo/Insert';
+  private _getOrderInfo = 'api/Checkout/Order/Review';
+  private _submitOrder = 'api/Checkout/Order/Submit';
   constructor(private _http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this._baseUrl = baseUrl;
+  }
+  submitOrder(): Observable<any> {
+    return this._http.post<any>(this._baseUrl + this._submitOrder, httpOptions)
+      .pipe(
+        tap(() => {
+        this.log(`submitted order`);
+      }
+      ),
+        catchError(this.handleError<any>('submitOrder error'))
+      );
   }
   insertShippingInfo(shippingInfo: ShippingInfo): Observable<ShippingInfo> {
     return this._http.post<ShippingInfo>(this._baseUrl + this._insertShippingInfo, shippingInfo, httpOptions)
@@ -38,6 +51,15 @@ export class CheckoutService {
       catchError(this.handleError<PaymentInfo>('insertPaymentInfo'))
     );
   }
+
+  getOrderInfo(): Observable<ReviewOrder> {
+    return this._http.get<ReviewOrder>(this._baseUrl + this._getOrderInfo)
+    .pipe(
+      tap(products => this.log(`fetched review order`)),
+      catchError(this.handleError<ReviewOrder>('getOrderInfo'))
+    );
+  }
+
   private log(message: string) {
     console.log('Checkout Service ' + message);
   }

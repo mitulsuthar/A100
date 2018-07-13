@@ -1,7 +1,9 @@
+import { ExpirationDate } from './ExpirationDate';
+
 export class CardInfo {
-    NameOnCard = '';
-    CardNumber = '';
-    CardType = '';
-    SecurityCode = '' ;
-    ExpirationDate = '';
+    nameOnCard = '';
+    cardNumber = '';
+    cardType = '';
+    securityCode = '' ;
+    expirationDate: ExpirationDate;
 }
