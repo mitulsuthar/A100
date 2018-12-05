@@ -37,5 +37,6 @@ Twitter <a href="http://twitter.com/#!/mitulsuthar">@mitulsuthar</a>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a16building-app-using-angular-and.html">A16 - Reactive Forms</a></li>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a17building-app-using-angular-and.html">A17 - Reactive Forms Validation</a></li>
 <li><a href="http://mscodingblog.blogspot.com/2018/06/a18building-app-using-angular-and.html">A18 - Reactive Forms Submitting Data</a></li>
-<li><a href="http://mscodingblog.blogspot.com/2018/06/a19building-app-using-angular-and.html">A19 - Review Order Details</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/07/a19building-app-using-angular-and.html">A19 - Review Order Details</a></li>
+<li><a href="http://mscodingblog.blogspot.com/2018/12/a20-upgrading-to-angular-7-and-aspnet.html">A20 - Upgrading to Angular 7 and ASP.NET Core</a></li>
 </ul>

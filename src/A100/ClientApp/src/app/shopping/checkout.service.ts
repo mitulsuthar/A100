@@ -1,9 +1,10 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable, Inject } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { ShippingInfo } from './models/ShippingInfo';
-import { Observable } from 'rxjs/Observable';
 import { catchError, tap } from 'rxjs/operators';
-import 'rxjs/add/observable/throw';
+
 import { PaymentInfo } from './models/PaymentInfo';
 import { ReviewOrder } from './models/ReviewOrder';
 const httpOptions = {
@@ -67,7 +68,7 @@ export class CheckoutService {
     return (error: any): Observable<T> => {
       console.log(error); // log to console instead
       this.log(`${operation} failed: ${error.message}`);
-      return Observable.throw(error || 'Server error');
+      return observableThrowError(error || 'Server error');
     };
   }
 }

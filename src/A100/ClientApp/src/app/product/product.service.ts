@@ -1,10 +1,9 @@
+
+import {throwError as observableThrowError,  Observable ,  of } from 'rxjs';
 import { Injectable, Inject } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 import { Product } from './product';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import 'rxjs/add/observable/throw';
-import { of } from 'rxjs/observable/of';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -72,7 +71,7 @@ export class ProductService {
     return (error: any): Observable<T> => {
       console.log(error); // log to console instead
       this.log(`${operation} failed: ${error.message}`);
-      return Observable.throw(error || 'Server error');
+      return observableThrowError(error || 'Server error');
     };
   }
 
