@@ -7,7 +7,7 @@ import { forEach } from '@angular/router/src/utils/collection';
 @Component({
   selector: 'app-shopping-cart',
   templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.sass']
+  styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
   public products: ShoppingCartProduct[];

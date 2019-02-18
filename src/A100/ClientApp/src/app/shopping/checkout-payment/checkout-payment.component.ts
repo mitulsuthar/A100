@@ -25,7 +25,7 @@ function expirationDateValidator(control: AbstractControl): {[key: string]: bool
 @Component({
   selector: 'app-checkout-payment',
   templateUrl: './checkout-payment.component.html',
-  styleUrls: ['./checkout-payment.component.sass']
+  styleUrls: ['./checkout-payment.component.css']
 })
 export class CheckoutPaymentComponent implements OnInit {
   cardTypes: string[] = ['VISA', 'DISCOVER', 'MASTERCARD', 'AMEX'];

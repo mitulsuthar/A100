@@ -6,7 +6,7 @@ import { CheckoutService } from '../checkout.service';
 @Component({
   selector: 'app-checkout-shippinginfo',
   templateUrl: './checkout-shippinginfo.component.html',
-  styleUrls: ['./checkout-shippinginfo.component.sass']
+  styleUrls: ['./checkout-shippinginfo.component.css']
 })
 export class CheckoutShippinginfoComponent implements OnInit {
 

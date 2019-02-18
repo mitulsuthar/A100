@@ -7,7 +7,7 @@ import { ShoppingCartProduct } from '../models/shoppingCartProduct';
 @Component({
   selector: 'app-checkout-review',
   templateUrl: './checkout-review.component.html',
-  styleUrls: ['./checkout-review.component.sass']
+  styleUrls: ['./checkout-review.component.css']
 })
 export class CheckoutReviewComponent implements OnInit {
 

@@ -4,7 +4,7 @@ import { ShoppingService } from '../../shopping/shopping.service';
 @Component({
   selector: 'app-shopping-cart-widget',
   templateUrl: './shopping-cart-widget.component.html',
-  styleUrls: ['./shopping-cart-widget.component.sass']
+  styleUrls: ['./shopping-cart-widget.component.css']
 })
 export class ShoppingCartWidgetComponent implements OnInit {
   quantity: number;
